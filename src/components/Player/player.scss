@@ -1,0 +1,132 @@
+img {
+  width: 40px;
+  height: 40px;
+}
+
+.app-bar {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  bottom: 0;
+  left: 0;
+  background-color: #212121;
+  color: #fff;
+  z-index: 9000;
+  width: calc(100% - 30px);
+  padding: 0 16px;
+
+  &__volume-slider {
+    display: none;
+    position: absolute;
+    padding: 10px 0;
+    height: 80px;
+    bottom: 60px;
+    right: 270px;
+    z-index: 99999;
+    background-color: #212121;
+
+    @media screen and (max-width: 640px) {
+      right: 21px;
+    }
+  }
+
+  &__volume-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    &:hover {
+      .app-bar__volume-slider {
+        display: block;
+      }
+    }
+  }
+
+  &__volume-icon {
+    padding: 0 16px;
+    cursor: pointer;
+  }
+
+  &__next-icon {
+    padding-right: 16px;
+  }
+
+  &__play-icon,
+  &__pause-icon {
+    font-size: 2rem !important;
+  }
+
+  &__prev-icon,
+  &__next-icon,
+  &__play-icon,
+  &__pause-icon {
+    cursor: pointer;
+  }
+
+  &__track-info {
+    display: flex;
+    min-width: 250px;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @media only screen and (max-width: 640px) {
+      display: none;
+    }
+  }
+}
+
+.time-bar {
+  margin: 0 7px;
+}
+
+.track-list {
+  &__container {
+    margin: 0 16px 70px 16px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 5px;
+  }
+
+  &__row {
+    &:hover {
+      cursor: pointer;
+
+      .track-list__cover-play-icon {
+        opacity: 1;
+      }
+
+      .track-list__action-button {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__play-icon {
+    top: 6px;
+    position: relative;
+  }
+
+  &__action-button {
+    opacity: 0;
+
+    @media only screen and (max-width: 480px) {
+      opacity: 1;
+    }
+  }
+
+  &__action-icon {
+    height: 0.8em;
+    width: 0.8em;
+  }
+
+  &__cover-play-icon {
+    opacity: 0;
+    position: relative;
+    right: 32px;
+    bottom: 8px;
+    color: #fff;
+    background-color: rgba(40, 40, 40, 0.35);
+    border-radius: 50%;
+  }
+}

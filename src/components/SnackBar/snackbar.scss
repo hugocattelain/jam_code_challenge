@@ -1,0 +1,11 @@
+.snack-bar {
+  &__icon {
+    position: relative;
+    top: 6px;
+    margin-right: 7px;
+  }
+
+  &__content {
+    line-height: 30px;
+  }
+}

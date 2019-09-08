@@ -1,25 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import Player from './components/Player/Player';
+import 'typeface-roboto';
+import './App.scss';
+
+const muiBlack = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#212121',
+    },
+    secondary: {
+      main: '#616161',
+    },
+  },
+  overrides: {
+    MuiSlider: {
+      root: {
+        color: '#fff',
+        margin: '0 10px',
+      },
+    },
+    MuiButton: {
+      root: {
+        minWidth: '24px',
+      },
+    },
+    MuiTableCell: {
+      root: {
+        whiteSpace: 'nowrap',
+        padding: '14px 0px 14px 16px',
+      },
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MuiThemeProvider theme={muiBlack}>
+      <div className='App'>
+        <Player />
+      </div>
+    </MuiThemeProvider>
   );
 }
 
